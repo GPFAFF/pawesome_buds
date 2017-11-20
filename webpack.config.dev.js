@@ -3,14 +3,19 @@ var webpack = require('webpack');
 
 var config = {
   context: __dirname + '/src', // `__dirname` is root of project and `src` is source
-  entry: {
-    app: './index.js',
-  },
+  entry: [
+    ' ',
+    '.src/index',
+  ],
   output: {
     path: __dirname + '/dist', // `dist` is the destination
     filename: 'bundle.js',
     publicPath: "/assets",
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
   module: {
     rules: [
       {
