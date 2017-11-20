@@ -1,20 +1,19 @@
 'use strict';
 const webpack = require('webpack');
+const path = require('path');
 
 const config = {
   context: __dirname + '/src', // `__dirname` is root of project and `src` is source
   entry: [
-    ' ',
-    '.src/index',
+    path.resolve(__dirname, 'src/index.js')
   ],
   output: {
     path: __dirname + '/dist', // `dist` is the destination
     filename: 'bundle.js',
-    publicPath: "/assets",
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
     rules: [
