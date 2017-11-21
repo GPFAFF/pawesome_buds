@@ -43,7 +43,6 @@ module.exports = {
         collapseWhitespace: true
       },
       hash: true,
-      excludeChunks: ['contact'],
       template: './src/templates/index.html'
     }),
     new ExtractTextPlugin({
