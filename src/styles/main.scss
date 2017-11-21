@@ -1,3 +1,6 @@
+
+@import '../styles/variables';
+
 body {
   background-color: #bada55;
 
@@ -10,9 +13,18 @@ body {
     }
   }
 
-  h1,
+  h1 {
+    text-align: center;
+
+    a {
+      color: white;
+      letter-spacing: .5px;
+      text-decoration: none;
+    }
+  }
+
   h2 {
-    color: #fff;
+    color: $white;
     text-align: center;
     text-shadow: 2px 2px 2px black;
   }
