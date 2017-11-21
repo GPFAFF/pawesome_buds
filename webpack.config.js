@@ -3,7 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
-module.exports = {
+const config = {
   entry: {
     app: './src/index.js',
   },
@@ -36,6 +36,7 @@ module.exports = {
     hot: true,
     open: true
   },
+
   plugins: [
     new HtmlWebPackPlugin({
       title: 'Pooch Patrol',
@@ -48,5 +49,17 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'main.css',
     }),
-  ]
+  ],
 };
+
+// Check if build is running in production mode, then change the sourcemap type
+if (process.env.NODE_ENV === "production") {
+  config.devtool = ""; // No sourcemap for production
+
+  // Add more configuration for production here like
+  // Uglify plugin
+  // Offline plugin
+  // Etc,
+}
+
+module.exports = config;

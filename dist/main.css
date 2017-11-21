@@ -2,4 +2,6 @@ body {
   background-color: #bada55; }
   body h1,
   body h2 {
-    color: #fff; }
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 2px black; }
