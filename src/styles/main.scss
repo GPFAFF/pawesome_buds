@@ -2,7 +2,7 @@
 @import '../styles/variables';
 
 body {
-  background-color: #bada55;
+  background-color: $background;
 
   ul {
     display: inline-flex;
@@ -17,24 +17,25 @@ body {
     text-align: center;
 
     a {
-      color: white;
+      color: $white;
       letter-spacing: .5px;
       text-decoration: none;
+      text-shadow: $text-shadow;
     }
   }
 
   h2 {
     color: $white;
     text-align: center;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: $text-shadow;
   }
 
-  .signup_form {
-    &__header {
-      color: white;
+  .signup-form {
+    &--header {
+      color: $white;
       font-size: 40px;
       text-align: center;
-      text-shadow: 2px 2px 2px black;
+      text-shadow: $text-shadow;
     }
   }
 }
