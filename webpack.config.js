@@ -1,55 +1,53 @@
-"use strict";
-
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
-const config = {
-  context: __dirname + '/src', // `__dirname` is root of project and `src` is source
+module.exports = {
   entry: {
-    src: './index.js',
+    app: './src/index.js',
   },
   output: {
-    path: __dirname + '/dist', // `dist` is the destination
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
       {
-        test: /\.js$/, //Check for all js files
-        loader: 'babel-loader',
-        query: {
-          presets: ["babel-preset-env"].map(require.resolve)
-        }
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+          publicPath: '/dist',
+        }),
       },
       {
-        test: /\.(sass|scss)$/, //Check for sass or scss file names
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ]
-      },
-      {
-        test: /\.json$/,
-        loader: "json-loader"  //JSON loader
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
       }
     ]
   },
-  //To run development server
   devServer: {
-    contentBase: __dirname + '/src',
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000,
+    stats: "errors-only",
+    hot: true,
+    open: true
   },
-
-  devtool: "eval-source-map" // Default development sourcemap
+  plugins: [
+    new HtmlWebPackPlugin({
+      title: 'Pooch Patrol',
+      minify: {
+        collapseWhitespace: true
+      },
+      hash: true,
+      excludeChunks: ['contact'],
+      template: './src/templates/index.html'
+    }),
+    new ExtractTextPlugin({
+      filename: 'main.css',
+    }),
+  ]
 };
-
-// Check if build is running in production mode, then change the sourcemap type
-if (process.env.NODE_ENV === "production") {
-  config.devtool = "source-map";
-
-  // Can do more here
-  // JSUglify plugin
-  // Offline plugin
-  // Bundle styles seperatly using plugins etc,
-}
-
-module.exports = config;
