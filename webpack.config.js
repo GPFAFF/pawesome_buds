@@ -14,12 +14,8 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader'],
-          publicPath: '/dist',
-        }),
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.js$/,
@@ -33,10 +29,8 @@ const config = {
     compress: true,
     port: 9000,
     stats: "errors-only",
-    hot: true,
     open: true
   },
-
   plugins: [
     new HtmlWebPackPlugin({
       title: 'Pooch Patrol',

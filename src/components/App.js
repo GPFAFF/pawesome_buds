@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+console.log("Apps!");
+
 class App extends Component {
   render() {
     return (
