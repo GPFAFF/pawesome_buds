@@ -9,6 +9,16 @@ body {
   font-family: 'Montserrat',
   sans-serif;
 
+  .container {
+    padding: 40px;
+    text-align: center;
+
+    .block {
+      line-height: 1.5;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
 
   ul {
     display: inline-flex;
@@ -19,10 +29,15 @@ body {
     }
   }
 
-  h1 {
-    text-align: center;
+  a {
+    &.active {
+      color: $white;
+    }
+  }
 
-    a {
+
+  h1 {
+    & a {
       color: $white;
       font-size: $header-font;
       letter-spacing: 10px;
@@ -33,7 +48,6 @@ body {
 
   h2 {
     color: $white;
-    text-align: center;
     text-shadow: $text-shadow;
   }
 
@@ -41,8 +55,11 @@ body {
     &--header {
       color: $white;
       font-size: $subheader-font;
-      text-align: center;
       text-shadow: $text-shadow;
     }
+  }
+
+  .navigation {
+    margin: 0 auto;
   }
 }

@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-class About extends Component {
+class HomePage extends Component {
   render() {
     return (
-      <div className="about block">
-        <h2>About</h2>
-          <p>about Lorem ipsum Lorem ipsum dolor sit amet,
+      <div className="Home block">
+        <h2>Home</h2>
+        <p>Home Lorem ipsum Lorem ipsum dolor sit amet,
              consectetur adipisicing elit. Harum, consectetur, at obcaecati accusantium facilis aut voluptates unde accusamus eos.
              Error quo aut vitae et dolorum, ratione necessitatibus
              tempora omnis obcaecati?</p>
-          <Link to="/home" className="button">Home </Link>
       </div>
     );
   }
 }
 
-export default About;
+export default HomePage;

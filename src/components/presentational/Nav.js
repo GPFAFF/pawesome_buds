@@ -1,29 +1,28 @@
-import React, { Component } from 'react';
-import {Route, Link, Switch } from 'react-router-dom';
-
-import App from '../App';
-import FormPage from '../container/FormPage';
-import AboutPage from '../container/AboutPage';
-import NotFound from '../container/NotFound';
+import React from 'react';
+import { NavLink as Link } from 'react-router-dom';
 
 const Nav = (props) => {
   return (
-      <div>
-        <ul>
-          <li><Link to="/">App</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/form">Home</Link></li>
-          <li><Link to="/notfound">Not Found</Link></li>
-          <li><Link to="/zz">zz</Link></li>
-        </ul>
+    <div className="navigation">
+      <ul>
+        <li>
+          <Link activeClassName="is-active" to="/home">Home</Link>
+        </li>
 
-        <Switch>
-          <Route path="/" exact component={App} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/form" component={FormPage} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+
+        <li>
+          <Link to="/form">Form</Link>
+        </li>
+
+        <li>
+          <Link to="/notfound">Not Found</Link>
+        </li>
+
+      </ul>
+    </div>
   );
 };
 

@@ -1,14 +1,17 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import Routes from './routes';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/App';
 const styles = require('../src/styles/main.scss');
 
 
 class Root extends React.Component {
   render() {
     return (
-      <Routes />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     );
   }
 }
