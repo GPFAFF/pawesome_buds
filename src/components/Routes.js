@@ -13,7 +13,7 @@ class Routes extends Component {
         <Route exact path="/" component={HomePage}/>
         <Route path="/about" component={AboutPage} />
         <Route path="/form" component={FormPage} />
-        <Route path="*" component={NotFound} />
+        <Route component={NotFound} />
       </Switch>
     );
   }

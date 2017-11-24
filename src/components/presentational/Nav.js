@@ -7,7 +7,7 @@ const Nav = (props) => {
     <div className="navigation">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link exact to="/">Home</Link>
         </li>
 
         <li>
