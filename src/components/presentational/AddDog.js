@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AddDog extends Component {
-  constructor() {
-    super();
 
-
-  }
-
-  addDog(event) {
+  createDog(event) {
     event.preventDefault();
+    console.log('Here comes a 🐶');
+
     const dog = {
       name: this.name.value,
       breed: this.breed.value,
       weight: this.weight.value,
       gender: this.gender.value,
     };
+    this.addDog.reset();
     console.log(dog, '🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶');
   }
 
@@ -23,7 +21,7 @@ class AddDog extends Component {
     const { message } = this.props;
 
     return (
-      <form className="dog-form" onSubmit={(event) => this.addDog(event)}>
+      <form ref={(input) => this.addDog = input} className="dog-form" onSubmit={(event) => this.createDog(event)}>
         <h3> {message} </h3>
         <label htmlFor="dog-name"/>
         <input ref={(input) => this.name = input} className="dog-name" id="dog-name" type="text" placeholder="Add your dogs name" />
